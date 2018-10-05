@@ -1,64 +1,140 @@
 import React, { Component } from 'react'
+import { ScrollView, View, Text, Linking, StyleSheet } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-
-
-
 // import the selector
 import { getResponsive } from 'responsive-redux'
+
+import Grid from './Grid'
 
 class Example extends Component {
   render () {
     const { responsive } = this.props
 
+    const {
+      breakpoints,
+      dimensions,
+      greaterThan,
+      is,
+      lessThan,
+      mediaType,
+      orientation
+    } = responsive
+
     return (
-      <div
+      <ScrollView
         style={{
+          marginTop: 30,
           margin: 10
         }}>
-        <h1>
-          responsive-redux-example-react-web
-        </h1>
 
-        <hr />
+        <Text style={styles.h1}>
+          responsive-redux-example-react-native
+        </Text>
 
-        <div>
-          <p>
-            React web example for <a href='https://github.com/markallancourtney/responsive-redux' target='_blank' rel='noopener noreferrer'>responsive-redux</a>
-          </p>
+        <View style={styles.hr} />
 
-          <p>
-            This example code came from <a href='https://github.com/markallancourtney/responsive-redux-example-react-web' target='_blank' rel='noopener noreferrer'>this respository</a>
-          </p>
+        <Text>
+            React Native example for
+          {' '}
+          <Text
+            style={styles.link}
+            onPress={() => Linking.openURL('https://github.com/markallancourtney/responsive-redux')}
+          >
+              responsive-redux
+          </Text>
+        </Text>
 
-          <p>
-            This example uses <a href='https://github.com/evgenyrodionov/redux-logger' target='_blank' rel='noopener noreferrer'>redux-logger</a>,
-            so you can open the JavaScript console and see changes to the Redux state as you resize the browser window and actions are dispatched.
-          </p>
-        </div>
+        <View style={styles.br} />
 
-        <div />
+        <Text>
+            This example code came from
+          {' '}
+          <Text
+            style={styles.link}
+            onPress={() => Linking.openURL('https://github.com/markallancourtney/responsive-redux-example-react-native')}
+          >
+            https://github.com/markallancourtney/responsive-redux-example-react-native
+          </Text>
+        </Text>
 
-        <div>
-          <div>
-            <p>
-                Resize the browser window to see values below change.
-            </p>
-            <p>
-                Below is the object returned by the getResponsive() selector.
-            </p>
-          </div>
+        <View style={styles.br} />
 
-          <div>
-            <ObjectInspector data={responsive} expandLevel={5} />
-          </div>
+        <Text>
+            This example uses
+          {' '}
+          <Text
+            style={styles.link}
+            onPress={() => Linking.openURL('https://github.com/evgenyrodionov/redux-logger')}
+          >
+            redux-logger
+          </Text>
+          {' '}
+            so you can use the 'Debug Remote JS' feature in Expo and open the JavaScript console to see changes to the
+            Redux state as you change device orientation
+            and actions are dispatched.
+        </Text>
 
-        </div>
+        <View style={styles.br} />
 
-        <hr />
+        <Text>
+            Change the device orientation or use a different device to see values below change.
+        </Text>
 
-      </div>
+        <View style={styles.br} />
+
+        <Text>
+            Below is the object returned by the getResponsive() selector.
+        </Text>
+
+        <View style={styles.br} />
+
+        <View>
+          <Grid
+            name='breakpoints'
+            object={breakpoints}
+          />
+          <Grid
+            name='dimensions'
+            object={dimensions}
+          />
+          <Grid
+            name='greaterThan'
+            object={greaterThan}
+          />
+          <Grid
+            name='is'
+            object={is}
+          />
+          <Grid
+            name='lessThan'
+            object={lessThan}
+          />
+
+          <View style={styles.row}>
+            <Text style={styles.name}>
+              mediaType
+            </Text>
+
+            <Text>
+              {mediaType}
+            </Text>
+          </View>
+
+          <View style={styles.row}>
+            <Text style={styles.name}>
+              orientation
+            </Text>
+
+            <Text>
+              {orientation}
+            </Text>
+          </View>
+
+        </View>
+
+      </ScrollView>
     )
   }
 }
@@ -76,3 +152,28 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 export default connect(mapStateToProps)(Example)
+
+const styles = StyleSheet.create({
+  h1: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  link: {
+    textDecorationLine: 'underline'
+  },
+  hr: {
+    borderWidth: 1,
+    height: 1
+  },
+  br: {
+    height: 20
+  },
+  name: {
+    fontWeight: 'bold',
+    marginRight: 5
+  },
+  row: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  }
+})
