@@ -1,0 +1,36 @@
+{
+  "name": "responsive-redux-example-react-native",
+  "version": "1.0.0",
+  "description": "responsive-redux example for React Native",
+  "private": true,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/expo start",
+    "__android": "./node_modules/.bin/expo start --android",
+    "__ios": "./node_modules/.bin/expo start --ios",
+    "__eject": "./node_modules/.bin/expo eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markallancourtney/responsive-redux-example-react-native.git"
+  },
+  "keywords": [
+    "resonsive",
+    "redux",
+    "react",
+    "native"
+  ],
+  "author": "Mark Courtney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markallancourtney/responsive-redux-example-react-native/issues"
+  },
+  "homepage": "https://github.com/markallancourtney/responsive-redux-example-react-native#readme",
+  "dependencies": {
+    "expo-cli": "^2.2.0",
+    "expo": "^30.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz"
+  }
+}
