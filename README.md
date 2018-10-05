@@ -9,6 +9,11 @@ Expo is installed locally for this project.
 
 
 # Usage
+- Open the device simulator of your choice - iOS or Android
+
+- Install Expo client on simulator <a href="https://docs.expo.io/versions/latest/introduction/installation#mobile-client-expo-for-ios-and-android" target="_blank">https://docs.expo.io/versions/latest/introduction/installation#mobile-client-expo-for-ios-and-android</a>
+
+
 - Clone this repository
     - `git clone https://github.com/markallancourtney/responsive-redux-example-react-native.git`
 - Change into this project directory
@@ -17,7 +22,8 @@ Expo is installed locally for this project.
     - `npm install`
 - Start Expo
     - `npm start`
-- Open the device simulator of your choice - iOS or Android
+- Tell Expo to open the app in the simulator
+    - Expo prompt will say `• Press a for Android emulator, or i for iOS simulator.`
 - Change the orientation of the simulator device and watch the values on the screen change
     - Since the screen dimensions are static in a native app, you will need to change devices in your simulator in order to see the screen size change.
 - Use the 'Debug Remote JS' in Expo feaure to see <a href='https://github.com/evgenyrodionov/redux-logger' target='_blank' rel='noopener noreferrer'>redux-logger</a> output when actions are dispatched and the Redux state changes.
@@ -27,8 +33,8 @@ Expo is installed locally for this project.
 
 # File descriptions
 - `App.js`
-    - React app entry point. This is where the store is passed as a prop to the react-redux Provider.
+    - React Native app entry point. This is where the store is passed as a prop to the react-redux Provider.
 - `store.js`
-    - Shows how to set up the Redux store for use with React Native
+    - Shows how to set up the Redux store for use with React Native.
 - `breakpoints.js`
     - Developer defined breakpoints. Name and pixel size of breakpoints defined in this file.
